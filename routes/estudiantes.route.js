@@ -3,11 +3,9 @@ import { estudianteControler } from "../controllers/estudiantes.controller.js";
 const router = Router()
 
 router.get('/', estudianteControler.getEstudiantes)
-
-router.post('/', estudianteControler.)
-
-router.put('/:id', estudianteControler.)
-
+router.get('/:rut', estudianteControler.getEstudianteByRut)
+router.post('/', estudianteControler.createEstudiantes)
+router.put('/:id', estudianteControler.updateEstudiantes)
 router.delete('/:id', estudianteControler.removeEstudiantes)
 
 

@@ -1,13 +1,22 @@
 import { pool } from "../database/connection.js";
 
-const all = async () => {
-    const { rows } = await pool.query("SELECT * FROM estudiates;")
+
+// seleccionar por rut:
+const getByRut = async (rut) => {
+    const queryString = "SELECT * FROM estudiantes WHERE rut = $1;"
+    const { rows } = await pool.query(queryString, [rut]);
     return rows
 }
 
+const all = async () => {
+    const { rows } = await pool.query("SELECT * FROM estudiantes WHERE rut = $1;")
+    return rows
+}
+
+
 const remove = async (id) => {
-    const queryString = "DELETE FROM estudiantes where id = $1 returning *;"
-    const { rows } = await pool.query(queryString, [id])
+    const queryString = "DELETE FROM estudiantes where rut = $1 returning *;"
+    const { rows } = await pool.query(queryString, [rut])
     return rows
 }
 
@@ -24,6 +33,7 @@ const update = async (estudiante) => {
 }
 
 export const modelEstudiantes = [
+    getByRut,
     all,
     remove,
     create,
