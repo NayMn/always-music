@@ -4,13 +4,9 @@ const router = Router()
 
 router.get('/', estudianteControler.getEstudiantes)
 
-router.post('/', (req, res) => {
-    res.json({ ok: true })
-})
+router.post('/', estudianteControler.)
 
-router.put('/:id', (req, res) => {
-    res.json({ ok: true })
-})
+router.put('/:id', estudianteControler.)
 
 router.delete('/:id', estudianteControler.removeEstudiantes)
 
