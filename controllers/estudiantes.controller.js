@@ -1,5 +1,6 @@
 import { modelEstudiantes } from "../models/estudiantes.model.js";
 
+
 const getEstudiantes = async (req, res) => {
     try {
         const estudiantes = await modelEstudiantes.all()

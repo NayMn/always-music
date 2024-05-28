@@ -5,7 +5,7 @@ const router = Router()
 router.get('/', estudianteControler.getEstudiantes)
 router.get('/:rut', estudianteControler.getEstudianteByRut)
 router.post('/', estudianteControler.createEstudiantes)
-router.put('/:id', estudianteControler.updateEstudiantes)
+router.put('/:rut', estudianteControler.updateEstudiantes)
 router.delete('/:id', estudianteControler.removeEstudiantes)
 
 

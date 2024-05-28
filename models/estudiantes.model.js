@@ -9,15 +9,15 @@ const getByRut = async (rut) => {
 }
 
 const all = async () => {
-    const { rows } = await pool.query("SELECT * FROM estudiantes WHERE rut = $1;")
-    return rows
+    const queryString = "SELECT * FROM estudiantes;";
+    const { rows } = await pool.query(queryString);
+    return rows;
 }
 
-
 const remove = async (id) => {
-    const queryString = "DELETE FROM estudiantes where rut = $1 returning *;"
-    const { rows } = await pool.query(queryString, [rut])
-    return rows
+    const queryString = "DELETE FROM estudiantes WHERE id = $1 RETURNING *;";
+    const { rows } = await pool.query(queryString, [id]);
+    return rows;
 }
 
 const create = async (estudianteNew) => {
@@ -32,11 +32,11 @@ const update = async (estudiante) => {
     return rows
 }
 
-export const modelEstudiantes = [
+export const modelEstudiantes = {
     getByRut,
     all,
     remove,
     create,
     update
-]
 
+}
